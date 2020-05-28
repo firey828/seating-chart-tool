@@ -6,6 +6,5 @@ public class Main {
         Essentials _gm = new Essentials();
         Classroom myClass = new Classroom();
         _gm.mainMenu(myClass);
-
     }
 }

@@ -1,10 +1,19 @@
 package com.company;
 
 public class Student {
-
+    // ======== INSTANCE VARIABLES ========
     private String _firstName;
     private String _lastName;
 
+    // ======== GETTERS ========
+    public String getFirstName() {
+        return _firstName;
+    }
+    public String getLastName() {
+        return _lastName;
+    }
+
+    // ======== CONSTRUCTORS ========
     public Student (String first, String last) {
 
         Window _w = new Window();
@@ -38,18 +47,16 @@ public class Student {
         }
     }
 
-    public String getFirstName() {
-        return _firstName;
-    }
-
-    public String getLastName() {
-        return _lastName;
-    }
-
+    /*
+     * Returns the first letter of this Student's _firstName
+     */
     public String getLastInitial() {
         return _lastName.substring(0,1);
     }
 
+    /*
+     * Returns a String representation of this Student object.
+     */
     public String toString() {
         return _firstName + " " + getLastInitial() + ". ";
     }
