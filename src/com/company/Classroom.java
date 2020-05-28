@@ -2,8 +2,10 @@ package com.company;
 
 public class Classroom {
 
+    // ======== INSTANCE VARIABLES ========
     private Seat[][] _seatingChart;
 
+    // ======== CONSTRUCTORS ========
     public Classroom () {
         _seatingChart = new Seat[5][5];
         for (int r = 0; r < _seatingChart.length; r++) {
@@ -13,6 +15,9 @@ public class Classroom {
         }
     }
 
+    /*
+     * Returns true if the student named [firstName] [lastName] is available, false otherwise
+     */
     public boolean studentExists(String firstName, String lastName) {
         for (int x = 0; x < _seatingChart.length; x++) {
             for (int y = 0; y < _seatingChart[x].length; y++) {
@@ -26,6 +31,9 @@ public class Classroom {
         return false;
     }
 
+    /*
+     * Searches for and returns the coordinates of a student name [firstName] [lastName]
+     */
     public int[] findStudent(String firstName, String lastName) {
         if (studentExists(firstName, lastName)) {
             for (int x = 0; x < _seatingChart.length; x++) {
@@ -46,6 +54,9 @@ public class Classroom {
         return new int[]{-1, -1};
     }
 
+    /*
+     * Returns true if the seat in the row-th row and col-th column is empty, false otherwise
+     */
     public boolean seatIsEmpty(int row, int col) {
         try {
             return !_seatingChart[row][col].seatIsOccupied();
@@ -55,6 +66,9 @@ public class Classroom {
         }
     }
 
+    /*
+     * Returns the total number of empty seats in the seating chart.
+     */
     public int numberOfEmptySeats() {
         int n = 0;
         for (int x = 0; x < _seatingChart.length; x++) {
@@ -67,6 +81,9 @@ public class Classroom {
         return n;
     }
 
+    /*
+     * Returns the Student object located at the seat in the row-th row and the col-th column
+     */
     public Student getStudentAt(int row, int col) {
         if (!seatIsEmpty(row, col)) {
             try {
@@ -80,6 +97,9 @@ public class Classroom {
         }
     }
 
+    /*
+     * Adds a student named [firstName] [lastName]
+     */
     public String addStudent(String firstName, String lastName) {
         for (int x = 0; x < _seatingChart.length; x++) {
             for (int y = 0; y < _seatingChart.length; y++) {
@@ -92,6 +112,9 @@ public class Classroom {
         return "There is not enough room to add " + firstName + " " + lastName + " to the class.";
     }
 
+    /*
+     * Removes a student named [firstName] [lastName]
+     */
     public String removeStudent(String firstName, String lastName) {
         if (studentExists(firstName, lastName)) {
             for (int x = 0; x < _seatingChart.length; x++) {
