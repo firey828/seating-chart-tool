@@ -135,6 +135,9 @@ public class Classroom {
                                             // by the first if-else??
     }
 
+    /*
+     * Moves a student named [firstName] [lastName] to the seat located in the row-th row and the col-th column
+     */
     public String moveStudent(String firstName, String lastName, int row, int col) {
         if (seatIsEmpty(row, col)) {
             _seatingChart[row][col].setStudent(new Student(firstName, lastName));
@@ -155,6 +158,9 @@ public class Classroom {
         }
     }
 
+    /*
+     * Switches the seat of the students named [firstFirstName] [lastLastName] and [lastFirstName] [lastLastName]
+     */
     public String swapStudents(String firstFirstName, String firstLastName, String lastFirstName, String lastLastName) {
         if (studentExists(firstFirstName, firstLastName) && studentExists(lastFirstName, lastLastName)) {
             int[] firstCoords = findStudent(firstFirstName, firstLastName);
@@ -171,6 +177,9 @@ public class Classroom {
         }
     }
 
+    /*
+     * Returns a String representing this Classroom object
+     */
     public String toString() {
         String msg = "";
         for (int x = 0; x < _seatingChart.length; x++) {

@@ -2,12 +2,17 @@ package com.company;
 
 public class Essentials {
 
+    // ======== INSTANCE VARIABLES ========
     private Window _w = new Window();
 
+    // ======== CONSTRUCTORS ========
     public Essentials() {
 
     }
 
+    /*
+     * Displays the initial menu pop-up.
+     */
     public void mainMenu(Classroom myClass) {
         String[] mainMenuChoices = new String[]{"Add Student", "Remove Student", "Move Student", "Swap Students", "Import Classroom", "Exit"};
         int choice = 0;
@@ -32,6 +37,9 @@ public class Essentials {
         }
     }
 
+    /*
+     * Displays the menu pop-up for adding students.
+     */
     public void addMenu(Classroom c) {
         String myName = _w.in("What is the FULL name of the student you would like to add?");
         _w.msg(c.addStudent(myName.substring(0, myName.indexOf(" ")), myName.substring(myName.indexOf(" ") + 1)));
@@ -40,11 +48,17 @@ public class Essentials {
         }
     }
 
+    /*
+     * Displays the menu pop-up for removing students.
+     */
     public void removeMenu(Classroom c) {
         String myName = _w.in("What is the FULL name of the student you would like to remove?");
         _w.msg(c.removeStudent(myName.substring(0, myName.indexOf(" ")), myName.substring(myName.indexOf(" ") + 1)));
     }
 
+    /*
+     * Displays the menu pop-up for moving students.
+     */
     public void moveMenu(Classroom c) {
         String myName = _w.in("What is the FULL name of the student you would like to remove?");
         int row = 0;
@@ -80,6 +94,9 @@ public class Essentials {
         _w.msg(c.moveStudent(myName.substring(0, myName.indexOf(" ")), myName.substring(myName.indexOf(" ") + 1), row, col));
     }
 
+    /*
+     * Displays the menu pop-up for swapping students.
+     */
     public void swapMenu(Classroom c) {
         String firstStudentName = _w.in("Please input the FULL name of the first student.");
         String firstFirst = firstStudentName.substring(0, firstStudentName.indexOf(" "));
@@ -90,6 +107,9 @@ public class Essentials {
         _w.msg(c.swapStudents(firstFirst, firstLast, lastFirst, lastLast));
     }
 
+    /*
+     * Displays the menu pop-up for importing students from a list.
+     */
     public void importMenu(Classroom c) {
         String dataThing = _w.in("Please input your class in the following format:\n" +
                 "Firstname Lastname/Firstname Lastname/Firstname Lastname\n" +
